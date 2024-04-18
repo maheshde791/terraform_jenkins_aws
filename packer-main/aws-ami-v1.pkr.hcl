@@ -33,11 +33,11 @@ build {
 
   provisioner "file" {
   source = "provisioner.sh"
-  destination = "/tmp/provisioner.sh"
+  destination = "./provisioner.sh"
 }
 
   provisioner "shell" {
-    inline = ["chmod a+x /tmp/provisioner.sh"]
+    inline = ["chmod a+x ./provisioner.sh"]
   }
   
   provisioner "shell" {
@@ -49,10 +49,10 @@ build {
   }
   
   provisioner "shell" {
-    inline = [ "cat /tmp/provisioner.sh"]
+    inline = [ "cat ./provisioner.sh"]
   }
 
   provisioner "shell" {
-    inline = ["/bin/bash -x /tmp/provisioner.sh"]
+    inline = ["/bin/bash -x ./provisioner.sh"]
   }
 }
