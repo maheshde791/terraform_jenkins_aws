@@ -32,7 +32,7 @@ build {
   ]
 
   provisioner "file" {
-  source = "provisioner.sh"
+  source = "./packer-main/provisioner.sh"
   destination = "/tmp/provisioner.sh"
 }
 
