@@ -33,15 +33,15 @@ build {
 
   provisioner "file" {
   source = "provisioner.sh"
-  destination = "./provisioner.sh"
+  destination = "./packer-main/provisioner.sh"
 }
 
   provisioner "shell" {
-    inline = ["chmod a+x ./provisioner.sh"]
+    inline = ["chmod a+x ./packer-main/provisioner.sh"]
   }
   
   provisioner "shell" {
-    inline = [ "ls -la /tmp"]
+    inline = [ "ls -la ./packer-main"]
   }
   
     provisioner "shell" {
@@ -49,10 +49,10 @@ build {
   }
   
   provisioner "shell" {
-    inline = [ "cat ./provisioner.sh"]
+    inline = [ "cat ./packer-main/provisioner.sh"]
   }
 
   provisioner "shell" {
-    inline = ["/bin/bash -x ./provisioner.sh"]
+    inline = ["/bin/bash -x ./packer-main/provisioner.sh"]
   }
 }
