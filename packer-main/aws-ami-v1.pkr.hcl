@@ -32,11 +32,11 @@ build {
   ]
 
   provisioner "shell" {
-    inline = ["chmod a+x ./packer-main/provisioner.sh"]
+    inline = ["chmod a+x ./provisioner.sh"]
   }
   
   provisioner "shell" {
-    inline = [ "ls -la ./packer-main"]
+    inline = [ "ls -la ./"]
   }
   
     provisioner "shell" {
@@ -44,10 +44,10 @@ build {
   }
   
   provisioner "shell" {
-    inline = [ "cat ./packer-main/provisioner.sh"]
+    inline = [ "cat ./provisioner.sh"]
   }
 
   provisioner "shell" {
-    inline = ["/bin/bash -x ./packer-main/provisioner.sh"]
+    inline = ["/bin/bash -x ./provisioner.sh"]
   }
 }
