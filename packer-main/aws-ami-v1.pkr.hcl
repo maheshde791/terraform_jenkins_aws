@@ -31,9 +31,23 @@ build {
     "source.amazon-ebs.amazon-linux"
   ]
 
+  provisioner "shell" {
+    inline = ["chmod a+x /packer-main/provisioner.sh"]
+  }
+  
+  provisioner "shell" {
+    inline = [ "ls -la /packer-main"]
+  }
+  
     provisioner "shell" {
     inline = [ "pwd"]
   }
   
+  provisioner "shell" {
+    inline = [ "cat /packer-main/provisioner.sh"]
+  }
 
+  provisioner "shell" {
+    inline = ["/bin/bash -x /packer-main/provisioner.sh"]
+  }
 }
