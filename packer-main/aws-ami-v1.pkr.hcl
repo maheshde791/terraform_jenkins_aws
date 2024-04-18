@@ -31,12 +31,17 @@ build {
     "source.amazon-ebs.amazon-linux"
   ]
 
+  provisioner "file" {
+  source = "provisioner.sh"
+  destination = "/tmp/provisioner.sh"
+}
+
   provisioner "shell" {
-    inline = ["chmod a+x ./provisioner.sh"]
+    inline = ["chmod a+x /tmp/provisioner.sh"]
   }
   
   provisioner "shell" {
-    inline = [ "ls -la ./"]
+    inline = [ "ls -la /tmp"]
   }
   
     provisioner "shell" {
@@ -44,10 +49,10 @@ build {
   }
   
   provisioner "shell" {
-    inline = [ "cat ./provisioner.sh"]
+    inline = [ "cat /tmp/provisioner.sh"]
   }
 
   provisioner "shell" {
-    inline = ["/bin/bash -x ./provisioner.sh"]
+    inline = ["/bin/bash -x /tmp/provisioner.sh"]
   }
 }
