@@ -1,7 +1,7 @@
 pipeline {
     agent any
     stages {
-        stage("AWS Demo") {
+        stage("Pre-stage") {
             steps {
                 withCredentials([
                     [
