@@ -15,12 +15,18 @@ provider "aws" {
 resource "aws_instance" "jenkins-ec2" {
   ami = "ami-001843b876406202a"
   instance_type = "t2.micro"
-  key_name = "org-mdeore-ec2jenkins"
+  key_name = "org_btcmp_mdeore01"
   vpc_security_group_ids = [aws_security_group.jenkins-sg.id]
   user_data = file("install_jenkins.sh")
   tags = {
     Name = "org-devops-jenkinsEC2"
   }
+}
+
+#Create Eip
+resource "aws_eip" "jenkins-eip" {
+  domain = "vpc"
+  instance = aws_instance.jenkins-ec2.id
 }
 
 #Create security group
