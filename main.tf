@@ -23,12 +23,6 @@ resource "aws_instance" "jenkins-ec2" {
   }
 }
 
-#Create Eip
-resource "aws_eip" "jenkins-eip" {
-  domain = "vpc"
-  instance = aws_instance.jenkins-ec2.id
-}
-
 #Create security group
 resource "aws_security_group" "jenkins-sg" {
   name        = "jenkins_sg20"
